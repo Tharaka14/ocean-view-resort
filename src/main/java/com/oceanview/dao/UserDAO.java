@@ -73,7 +73,6 @@ public class UserDAO {
 
             ps.setString(1, username);
             ps.setString(2, password);
-
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
@@ -82,7 +81,7 @@ public class UserDAO {
         }
     }
 
-    // Delete user by id
+    // Delete user by id (safe - staff only)
     public boolean deleteUser(int id) {
         String sql = "DELETE FROM users WHERE id = ? AND role = 'staff'";
 
@@ -95,6 +94,18 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    // ✅ Delete staff by id (any role match)
+    public void deleteStaff(int id) throws SQLException {
+        String sql = "DELETE FROM users WHERE id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
         }
     }
 
@@ -125,7 +136,6 @@ public class UserDAO {
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getRole());
-
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {

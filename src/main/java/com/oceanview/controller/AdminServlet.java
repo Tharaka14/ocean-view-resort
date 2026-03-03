@@ -20,6 +20,17 @@ public class AdminServlet extends HttpServlet {
             return;
         }
 
+        // ✅ DELETE STAFF - GET request (from admin.jsp link)
+        String action = req.getParameter("action");
+        if ("deleteStaff".equals(action)) {
+            int id = Integer.parseInt(req.getParameter("id"));
+            UserDAO dao = new UserDAO();
+            dao.deleteUser(id);
+            resp.sendRedirect("admin");
+            return;
+        }
+
+        // Load staff list
         UserDAO dao = new UserDAO();
         req.setAttribute("staffList", dao.getAllStaff());
         req.getRequestDispatcher("/admin.jsp").forward(req, resp);
