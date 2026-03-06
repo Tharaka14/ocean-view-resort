@@ -233,7 +233,7 @@
                 </div>
                 <div class="step-body">
                     Use your assigned username and password to access the system.<br>
-                    Default credentials: <span class="code-pill">staff1</span> / <span class="code-pill">staff123</span>
+                    Default credentials: <span class="code-pill">User name- staff1</span> / <span class="code-pill">Password- staff123</span>
                 </div>
             </div>
 

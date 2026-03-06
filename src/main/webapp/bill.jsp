@@ -266,7 +266,7 @@
         <div class="bill-footer text-center">
             <button onclick="window.print()" class="btn-print me-2">🖨 Print Bill</button>
             <a href="dashboard" class="btn-back">← Back to Dashboard</a>
-            <div class="thank-you">Thank you for choosing Ocean View Resort 🌊</div>
+            <div class="thank-you">Thank you for choosing Ocean View Resort 🌊..</div>
         </div>
 
     </div><!-- end bill-card -->
